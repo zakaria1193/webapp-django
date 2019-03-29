@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block HEAD %}     {% include "./head_base.html" %}  {% endblock HEAD %}
+  </head>
+
+  {% block NAVBAR %}     {% include "./navbar.html" %}   {% endblock NAVBAR %}
+  {% block CONTENT %}    <h1>CONTENT BLOCK TO OVERWRITE</h1>  {% endblock CONTENT %}
+  {% block JS_LOADING %} {% include "./js_loading.html" %} {% endblock JS_LOADING %}
+  {% block FOOTER %}     {% include "./footer.html" %}{% endblock FOOTER %}
+
+  </body>
+</html>
+
+

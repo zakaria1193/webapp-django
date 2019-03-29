@@ -1,0 +1,46 @@
+{% load static %}
+
+
+ <!--Import jQuery before materialize.js-->
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ <script type="text/javascript" src="{% static "js/materialize.min.js" %}"></script>
+ <script src="{% static "js/jquery.unveil.js" %}"></script>
+ <script>
+ $(document).ready(function(){
+     $('.materialboxed').materialbox();
+     $(".button-collapse").sideNav();
+     $(".unveil").unveil(300);
+     $(".button-collapse").sideNav();
+     setTimeout( function(){
+       //Opening Tap tagrget
+      $('.tap-target').tapTarget('open');
+      //closing tap target after 5 seconds
+      setTimeout( function(){
+        $('.tap-target').tapTarget('close');
+      }, 5000);
+     }, 2000);
+
+     $('#main_tabs').tabs({
+       onShow: function(tab){
+         console.log(tab[0].id);
+         switch(tab[0].id){
+           case 'portfolio':
+                $('.early_load_portfolio').trigger('unveil');
+                break;
+            case 'projects':
+                $('.early_load_projects').trigger('unveil');
+                break;
+            case 'about':
+                $('.early_load_profile').trigger('unveil');
+                break;
+         }
+       }
+     });
+    jQuery('.skillbar').each(function(){
+        jQuery(this).find('.skillbar-bar').animate({
+            width:jQuery(this).attr('data-percent')
+        },2000);
+    });
+
+});
+ </script>
